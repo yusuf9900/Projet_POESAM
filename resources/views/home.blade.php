@@ -26,17 +26,17 @@
             --light-bg: #f8f9fa;
             --border-color: #e9ecef;
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text-color);
             background-color: var(--light-bg);
         }
-        
+
         .dashboard-container {
             padding: 30px 0;
         }
-        
+
         .sidebar {
             background-color: var(--white);
             border-radius: 15px;
@@ -46,28 +46,28 @@
             position: sticky;
             top: 30px;
         }
-        
+
         .sidebar-header {
             margin-bottom: 30px;
             padding-bottom: 20px;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .sidebar-header h3 {
             color: var(--primary-color);
             font-weight: 600;
             margin-bottom: 0;
         }
-        
+
         .sidebar-menu {
             list-style: none;
             padding-left: 0;
         }
-        
+
         .sidebar-menu li {
             margin-bottom: 15px;
         }
-        
+
         .sidebar-menu a {
             display: flex;
             align-items: center;
@@ -77,22 +77,22 @@
             border-radius: 10px;
             transition: all 0.3s ease;
         }
-        
+
         .sidebar-menu a:hover, .sidebar-menu a.active {
             background-color: var(--secondary-color);
             color: var(--primary-color);
         }
-        
+
         .sidebar-menu a i {
             margin-right: 10px;
             font-size: 1.2rem;
             color: var(--primary-color);
         }
-        
+
         .main-content {
             padding: 0 20px;
         }
-        
+
         .welcome-banner {
             background-color: var(--white);
             border-radius: 15px;
@@ -102,7 +102,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .welcome-banner::before {
             content: '';
             position: absolute;
@@ -113,19 +113,19 @@
             background-color: var(--secondary-color);
             clip-path: polygon(100% 0, 0 0, 100% 100%);
         }
-        
+
         .welcome-banner h2 {
             color: var(--primary-color);
             font-weight: 600;
             margin-bottom: 10px;
         }
-        
+
         .welcome-banner p {
             color: var(--light-text);
             margin-bottom: 0;
             max-width: 80%;
         }
-        
+
         .stat-card {
             background-color: var(--white);
             border-radius: 15px;
@@ -134,11 +134,11 @@
             margin-bottom: 30px;
             transition: transform 0.3s ease;
         }
-        
+
         .stat-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .stat-card .icon {
             width: 60px;
             height: 60px;
@@ -149,24 +149,24 @@
             justify-content: center;
             margin-bottom: 20px;
         }
-        
+
         .stat-card .icon i {
             font-size: 1.5rem;
             color: var(--primary-color);
         }
-        
+
         .stat-card h3 {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 5px;
         }
-        
+
         .stat-card p {
             color: var(--light-text);
             margin-bottom: 0;
         }
-        
+
         .activity-card {
             background-color: var(--white);
             border-radius: 15px;
@@ -174,7 +174,7 @@
             padding: 25px;
             margin-bottom: 30px;
         }
-        
+
         .activity-card h4 {
             color: var(--primary-color);
             font-weight: 600;
@@ -182,7 +182,7 @@
             padding-bottom: 15px;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .activity-item {
             display: flex;
             align-items: flex-start;
@@ -190,13 +190,13 @@
             padding-bottom: 20px;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .activity-item:last-child {
             margin-bottom: 0;
             padding-bottom: 0;
             border-bottom: none;
         }
-        
+
         .activity-icon {
             width: 40px;
             height: 40px;
@@ -207,29 +207,29 @@
             justify-content: center;
             margin-right: 15px;
         }
-        
+
         .activity-icon i {
             font-size: 1rem;
             color: var(--primary-color);
         }
-        
+
         .activity-content h5 {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 5px;
         }
-        
+
         .activity-content p {
             color: var(--light-text);
             margin-bottom: 5px;
             font-size: 0.9rem;
         }
-        
+
         .activity-content .time {
             color: var(--light-text);
             font-size: 0.8rem;
         }
-        
+
         .resource-card {
             background-color: var(--white);
             border-radius: 15px;
@@ -238,11 +238,11 @@
             margin-bottom: 30px;
             transition: transform 0.3s ease;
         }
-        
+
         .resource-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .resource-card .icon {
             width: 50px;
             height: 50px;
@@ -253,24 +253,24 @@
             justify-content: center;
             margin-bottom: 15px;
         }
-        
+
         .resource-card .icon i {
             font-size: 1.2rem;
             color: var(--primary-color);
         }
-        
+
         .resource-card h5 {
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 10px;
         }
-        
+
         .resource-card p {
             color: var(--light-text);
             margin-bottom: 15px;
             font-size: 0.9rem;
         }
-        
+
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
@@ -279,14 +279,14 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-        
+
         .btn-primary:hover {
             background-color: #7442d3;
             border-color: #7442d3;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(138, 86, 226, 0.3);
         }
-        
+
         .btn-outline-primary {
             color: var(--primary-color);
             border-color: var(--primary-color);
@@ -295,7 +295,7 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-        
+
         .btn-outline-primary:hover {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
@@ -306,7 +306,7 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light   shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <span style="color: #8a56e2; font-weight: 700;">Jigeen</span>
@@ -366,7 +366,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <!-- Main Content -->
                 <div class="col-lg-9">
                     <div class="main-content">
@@ -377,7 +377,7 @@
                             @endif
                             <p>Nous sommes heureux de vous revoir sur votre espace sécurisé. Explorez les ressources disponibles et connectez-vous avec la communauté.</p>
                         </div>
-                        
+
                         <!-- Stats Row -->
                         <div class="row">
                             <div class="col-md-4">
@@ -408,7 +408,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Activity and Resources -->
                         <div class="row">
                             <div class="col-md-8">

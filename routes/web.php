@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 // Route pour la page d'accueil
 Route::get('/', function () {
@@ -19,7 +20,7 @@ Route::get('/home', function (\Illuminate\Http\Request $request) {
             'user_type' => $_COOKIE['user_type'] ?? null,
             'is_logged_in' => true
         ]);
-        
+
         // Vérifier le type d'utilisateur
         if (isset($_COOKIE['user_type']) && $_COOKIE['user_type'] !== 'victime') {
             // Rediriger vers le tableau de bord approprié
@@ -29,11 +30,11 @@ Route::get('/home', function (\Illuminate\Http\Request $request) {
                 return redirect('/organisation/dashboard');
             }
         }
-        
+
         // Afficher la page home avec les données de session
         return view('home');
     }
-    
+
     // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
     return redirect('/direct-login.php');
 })->name('home');
@@ -51,7 +52,7 @@ Route::prefix('admin')->group(function () {
                 'user_type' => $_COOKIE['user_type'] ?? null,
                 'is_logged_in' => true
             ]);
-            
+
             // Récupérer les organisations pour le tableau de bord
             try {
                 $pdo = new PDO("mysql:host=db;dbname=poesam;charset=utf8mb4", "root", "rootpass", [
@@ -59,21 +60,21 @@ Route::prefix('admin')->group(function () {
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                     PDO::ATTR_EMULATE_PREPARES => false,
                 ]);
-                
+
                 $stmt = $pdo->prepare("SELECT o.*, u.email, u.created_at as date_creation FROM organisations o JOIN users u ON o.id_user = u.id ORDER BY o.created_at DESC");
                 $stmt->execute();
                 $organisations = $stmt->fetchAll();
-                
+
                 return view('admin.dashboard', ['organisations' => $organisations]);
             } catch (\Exception $e) {
                 return view('admin.dashboard', ['organisations' => [], 'error' => $e->getMessage()]);
             }
         }
-        
+
         // Si l'utilisateur n'est pas connecté en tant qu'admin, rediriger vers la page de connexion
         return redirect('/direct-login.php');
     })->name('admin.dashboard');
-    
+
     // Routes pour la gestion des organisations avec le contrôleur
     Route::get('/create-organisation', 'App\Http\Controllers\Admin\OrganisationController@create')->name('admin.create-organisation');
     Route::post('/create-organisation', 'App\Http\Controllers\Admin\OrganisationController@store');
@@ -97,10 +98,10 @@ Route::prefix('organisation')->group(function () {
                 'user_type' => $_COOKIE['user_type'] ?? null,
                 'is_logged_in' => true
             ]);
-            
+
             return view('organisation.dashboard');
         }
-        
+
         // Si l'utilisateur n'est pas connecté en tant qu'organisation, rediriger vers la page de connexion
         return redirect('/direct-login.php');
     })->name('organisation.dashboard');

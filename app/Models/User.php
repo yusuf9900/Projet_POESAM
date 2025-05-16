@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Conversation;
+use App\Models\Message;
 
 class User extends Authenticatable
 {
@@ -21,6 +23,16 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'bio',
+        'avatar',
+        'notification_email',
+        'notification_evenements',
+        'notification_messages',
+        'notification_communaute',
+        'profil_public',
+        'masquer_activite',
+        'masquer_participation',
     ];
 
     /**
@@ -43,6 +55,31 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'notification_email' => 'boolean',
+            'notification_evenements' => 'boolean',
+            'notification_messages' => 'boolean',
+            'notification_communaute' => 'boolean',
+            'profil_public' => 'boolean',
+            'masquer_activite' => 'boolean',
+            'masquer_participation' => 'boolean',
         ];
+    }
+    
+    /**
+     * Récupérer toutes les conversations de l'utilisateur
+     */
+    public function conversations()
+    {
+        return $this->belongsToMany(Conversation::class, 'conversation_user')
+                    ->withPivot('est_administrateur', 'dernier_accès')
+                    ->withTimestamps();
+    }
+    
+    /**
+     * Récupérer tous les messages envoyés par l'utilisateur
+     */
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
     }
 }

@@ -12,24 +12,39 @@ class Publication extends Model
     protected $table = 'publications';
     
     protected $fillable = [
+        'titre',
         'contenu',
-        'media',
         'date_publication',
-        'id_victime'
+        'est_anonyme',
+        'categorie',
+        'user_id'
     ];
 
-    public function victime()
-    {
-        return $this->belongsTo(Victime::class, 'id_victime');
-    }
+    protected $casts = [
+        'date_publication' => 'datetime',
+        'est_anonyme' => 'boolean'
+    ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
+    // Relation avec les commentaires
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    
+    // Relation avec les anciens commentaires (pour rétrocompatibilité)
     public function commentaires()
     {
-        return $this->hasMany(Commentaire::class, 'id_publication');
+        return $this->hasMany(Commentaire::class);
     }
 
+    // Relation avec les réactions
     public function reactions()
     {
-        return $this->hasMany(Reaction::class, 'id_publication');
+        return $this->hasMany(Reaction::class, 'publication_id');
     }
 }

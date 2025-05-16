@@ -12,19 +12,29 @@ class Reaction extends Model
     protected $table = 'reactions';
     
     protected $fillable = [
-        'type_reaction',
-        'date_reaction',
-        'id_publication',
-        'id_victime'
+        'type',
+        'publication_id',
+        'commentaire_id',
+        'user_id'
+    ];
+    
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
 
     public function publication()
     {
-        return $this->belongsTo(Publication::class, 'id_publication');
+        return $this->belongsTo(Publication::class, 'publication_id');
     }
 
-    public function victime()
+    public function commentaire()
     {
-        return $this->belongsTo(Victime::class, 'id_victime');
+        return $this->belongsTo(Commentaire::class, 'commentaire_id');
+    }
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

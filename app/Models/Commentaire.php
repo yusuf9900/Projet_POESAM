@@ -14,17 +14,27 @@ class Commentaire extends Model
     protected $fillable = [
         'contenu',
         'date_commentaire',
-        'id_publication',
-        'id_victime'
+        'publication_id',
+        'user_id'
     ];
 
     public function publication()
     {
-        return $this->belongsTo(Publication::class, 'id_publication');
+        return $this->belongsTo(Publication::class, 'publication_id');
     }
 
-    public function victime()
+    public function user()
     {
-        return $this->belongsTo(Victime::class, 'id_victime');
+        return $this->belongsTo(User::class, 'user_id');
     }
+    
+    /**
+     * Relation avec les réactions pour ce commentaire
+     */
+    public function reactions()
+    {
+        return $this->hasMany(Reaction::class, 'commentaire_id');
+    }
+    
+    // Note: La table n'a pas de support pour les réponses hiérarchiques aux commentaires
 }

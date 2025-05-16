@@ -858,6 +858,7 @@
             <p class="cta-text">Rejoignez notre communauté et découvrez le pouvoir du partage et du soutien.</p>
             <div>
                 <a href="#" class="btn btn-white">Créer un compte</a>
+                <a href="{{ route('communaute.index') }}" class="btn btn-outline-white">Rejoindre la communauté</a>
                 <a href="#" class="btn btn-outline-white">En savoir plus</a>
             </div>
         </div>
@@ -879,7 +880,8 @@
                     <ul class="footer-links">
                         <li><a href="#">Accueil</a></li>
                         <li><a href="#">Histoires</a></li>
-                        <li><a href="#">Ressources</a></li>
+                        <li><a href="{{ route('resources.index') }}">Ressources</a></li>
+                        <li><a href="{{ route('communaute.index') }}">Communauté</a></li>
                         <li><a href="#">ONG Partenaires</a></li>
                     </ul>
                 </div>

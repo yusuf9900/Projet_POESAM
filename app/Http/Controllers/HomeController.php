@@ -33,7 +33,7 @@ class HomeController extends Controller
                 // Les victimes restent sur la page home
             }
         }
-        
+
         // Afficher la page home avec les publications pour tout le monde
         return view('home', compact('publications'));
     }
